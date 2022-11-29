@@ -27,6 +27,11 @@ public class BienvenuController {
   @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
   public String allAccess() {
 
+/*
+  SecurityContextHolder permet d'accéder au SecurityContext.
+  SecurityContextdétient les Authenticationinformations de sécurité et éventuellement spécifiques à la demande.
+  Authenticationreprésente le principal qui inclut GrantedAuthorityqui reflète les autorisations à l'échelle de l'application accordées à un principal.
+ */
     Object principal = SecurityContextHolder.getContext()
             .getAuthentication()
             .getPrincipal();

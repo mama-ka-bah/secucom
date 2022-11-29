@@ -43,10 +43,20 @@ public class CollaborateurDetailsImpl implements UserDetails {
 
   //return l'user avec tous ces droits et toutes ces informations
   public static CollaborateurDetailsImpl build(Collaborateurs user) {
+
+    /*
+    * Dans Spring Security, nous pouvons considérer chaque GrantedAuthority comme un privilège individuel.
+    *  Les exemples peuvent inclure READ_AUTHORITY , WRITE_PRIVILEGE
+    * De même, dans Spring Security, nous pouvons considérer chaque rôle comme une GrantedAuthority à
+    * gros grains représentée sous la forme d'une chaîne et préfixée par « ROLE »
+     * */
+
+    //Stream est utilisée pour traiter des collections d'objets
     List<GrantedAuthority> authorities = user.getRoles().stream()
         .map(role -> new SimpleGrantedAuthority(role.getName().name()))
         .collect(Collectors.toList());
 
+    //on cree retourne un objet CollaborateurDetailsImpl
     return new CollaborateurDetailsImpl(
         user.getId(), 
         user.getUsername(), 

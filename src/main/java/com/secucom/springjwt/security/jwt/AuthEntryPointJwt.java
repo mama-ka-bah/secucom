@@ -17,6 +17,9 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/*
+AuthenticationEntryPointdétectera l'erreur d'authentification.
+ */
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 

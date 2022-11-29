@@ -16,9 +16,15 @@ import com.secucom.springjwt.repository.CollaborateursRepository;
 
 import java.util.List;
 
+/*
+
+UserDetailsServiceest décrit comme une interface principale qui charge des données spécifiques à
+l'utilisateur dans la documentation Spring.
+
+ */
+
 @Service
 public class CollaborateurDetailsServiceImpl implements UserDetailsService, Services {
-
 
     @Autowired
   CollaborateursRepository collaborateursRepository;

@@ -78,7 +78,11 @@ public class WebSecurityConfig {
     return new AuthTokenFilter();
   }
 
-  
+
+  /*
+  DaoAuthenticationProvider, qui récupère les détails de l'utilisateur à partir d'un fichier
+  UserDetailsService
+   */
   @Bean
   public DaoAuthenticationProvider authenticationProvider() {
 
@@ -92,7 +96,7 @@ public class WebSecurityConfig {
       return authProvider;
   }
 
-  
+
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
     return authConfig.getAuthenticationManager();
